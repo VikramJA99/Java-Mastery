@@ -1,9 +1,9 @@
 package days1to10.Collections;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
+
+
 
 public class Day2_ListExample {
 
@@ -64,5 +64,76 @@ public class Day2_ListExample {
         List<String> list3 = new ArrayList<>(Arrays.asList("A","B","C","D"));
         Collections.replaceAll(list3, "A","D");
         System.out.println(list3);
-    }
+
+    // remove d
+        List<String> list4 = new ArrayList<>(Arrays.asList("Vikram","Vikram","Vikram"))
+                .stream()
+                .distinct()
+                .toList();
+        System.out.println(list4);
+
+
+        List<Integer> list5 = new ArrayList<>(Arrays.asList(23,25,23,26,27))
+                .stream()
+                .toList().reversed();
+        System.out.println(list5);
+
+
+        // filter name
+
+
+        List<String> list6 = new ArrayList<>(Arrays.asList("Vikram","Ben","Imran","Vicky","Surya"))
+                .stream()
+                // start with name
+                //.filter(s -> s.startsWith("B"))
+                // end with name
+                //.filter(s -> s.endsWith("a"))
+                // contains a name value
+                //.filter(s -> s.contains("ram"))
+                //equals with name
+                //.filter(s -> s.equals("Vicky"))
+                .toList();
+        System.out.println(list6);
+
+
+
+        List<String> str =  Arrays.asList("        Apple","Banana   ","Mango  ","  Kiwi","Jack  fruit");
+
+        List<String> cleanedList = str.stream()
+                .map(cl -> cl.trim()).map(cl -> cl.replaceAll("\\s+", " "))
+                .collect(Collectors.toList());
+
+        List<String> sortedList = cleanedList.stream()
+                .sorted((s1 , s2) -> s1.compareTo(s2))
+                .collect(Collectors.toList());
+
+        System.out.println("Original List : " + str);
+        System.out.println("Cleaned List : " + cleanedList);
+        System.out.println("Sorted List : " + sortedList);
+
+
+
+
+        //Given a list of integers, count the frequency of each element using HashMap.
+
+        List<Integer> list7 = Arrays.asList(1,3,2,4,5,3,2,6,7);
+
+//        Map<Integer, Integer> frq = new HashMap<>();
+//        for (Integer num : list7){
+//            frq.put(num, frq.getOrDefault(num, 0) +1);
+//        }
+//        System.out.println(frq);
+
+        //If you want using Streams
+
+        Map<Integer, Long> frq = list7.stream()
+                .collect(Collectors.
+                        groupingBy(n->n, Collectors.counting()));
+
+        System.out.println(frq);
+
+
+
+     }
+
 }

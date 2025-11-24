@@ -6,7 +6,7 @@ public class Find_Age {
     public static void main(String[] args){
         int age = 20;
 
-        if(age <= 15){
+        if (age <= 15){
             System.out.println("Your Child");
         } else if (age <= 18) {
             System.out.println("Your Teen");
