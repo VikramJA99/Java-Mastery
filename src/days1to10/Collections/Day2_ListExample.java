@@ -132,6 +132,49 @@ public class Day2_ListExample {
 
         System.out.println(frq);
 
+        //Remove Duplicates using HashSet
+
+        List<Integer> list8 = Arrays.asList(1,2,3,2,3,4,5,6,4,5,8);
+
+        Set<Integer> set = new HashSet<>(list8);
+        System.out.println(set);
+
+       // Using LinkedHashSet (Preserves order)
+
+        Set<Integer> set1 = new LinkedHashSet<>(list8);
+        List<Integer> noDuplicates = new ArrayList<>(set1);
+
+        System.out.println(set1);
+
+        //3. Sort a List
+
+//        List<Integer> list9 = Arrays.asList(1,3,4,5,2,6,7)
+//                .stream()
+//                .sorted()
+//                .toList();
+
+       // System.out.println(list9);
+        //Using Collections.sort() (Most common)
+        List<Integer> list9 = Arrays.asList(1,3,4,5,2,6,7);
+                Collections.sort(list9);
+                System.out.println(list9);
+
+        //4. Check if Key Exists
+
+        Map<Integer, String> list10 = new HashMap<>();
+        list10.put(1,"A");
+        list10.put(2,"B");
+        list10.put(3,"C");
+        list10.put(4,"D");
+
+        if (list10.containsKey(4)){
+            System.out.println("Keys exists");
+        } else {
+            System.out.println("Key does not exist");
+        }
+
+
+
 
 
      }
